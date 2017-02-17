@@ -1,0 +1,22 @@
+{
+  "name": "scriblr",
+  "description": "A Node.js command line app for taking notes",
+  "version": "1.0.0",
+  "author": "Sikender Khan <sikendermkhan@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/sikender/scriblr#readme",
+  "repository": "sikender/scriblr",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cli-input": "^0.2.0",
+    "commander": "^2.9.0",
+    "nosqlite": "^0.2.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
