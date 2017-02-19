@@ -2,7 +2,6 @@ const program = require('commander')
 const prompt = require('cli-input')
 
 const notes = require('./lib/notes')
-const DB = require('./config')
 
 program
   .command('add <title>')
@@ -15,7 +14,8 @@ program
       if (err) {
         console.log(err)
       }
-      notes.addNote(title, raw)
+      var note = notes.addNote(title, raw)
+      console.log(`New post created. Id: ${note.noteId}`)
       process.exit(0)
     })
   })
