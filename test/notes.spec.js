@@ -15,4 +15,9 @@ describe('Test notes module', function () {
     var note = notes.getNote('hello')
     assert.isObject(note)
   })
+
+  it('should get an array of all notes', function () {
+    var notesArray = notes.getAll()
+    assert.isArray(notesArray)
+  })
 })

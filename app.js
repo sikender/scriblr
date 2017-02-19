@@ -26,6 +26,7 @@ program
   .description('read a note')
   .action(function (title) {
     var note = notes.getNote(title)
+    console.log('--------------------')
     console.log(`Title: ${note.title}`)
     console.log('--------------------')
     console.log(`Body: ${note.body}`)
@@ -44,8 +45,13 @@ program
   .command('list')
   .alias('l')
   .description('list all notes')
-  .action(function (title) {
-    // TODO
+  .action(function () {
+    var notesArray = notes.getAll()
+    notesArray.forEach(function (note) {
+      console.log('--------------------')
+      console.log(`Title: ${note.title}`)
+      console.log('--------------------')
+    })
   })
 
 program.parse(process.argv)
