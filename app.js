@@ -1,20 +1,8 @@
-const os = require('os')
-const fs = require('fs')
 const program = require('commander')
 const prompt = require('cli-input')
 
-const dbPath = `${os.homedir()}/.scriblr`
-if (!fs.existsSync(dbPath)) {
-  fs.mkdirSync(dbPath)
-}
-
-const nosqlite = new (require('nosqlite').Connection)(dbPath)
-
-const DB = nosqlite.database('data')
-
-if (!DB.existsSync()) {
-  DB.createSync()
-}
+const notes = require('./lib/notes')
+const DB = require('./config')
 
 program
   .command('add <title>')
@@ -25,6 +13,10 @@ program
     var ps = prompt()
     ps.multiline(function (err, lines, raw) {
       // TODO
+      if (err) {
+        console.log(err)
+      }
+      notes.addNote(title, raw)
       process.exit(0)
     })
   })
