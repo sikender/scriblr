@@ -12,7 +12,6 @@ program
     console.log('Type a note (finish with Ctrl^D): ')
     var ps = prompt()
     ps.multiline(function (err, lines, raw) {
-      // TODO
       if (err) {
         console.log(err)
       }
@@ -26,7 +25,11 @@ program
   .alias('r')
   .description('read a note')
   .action(function (title) {
-    // TODO
+    var note = notes.getNote(title)
+    console.log(`Title: ${note.title}`)
+    console.log('--------------------')
+    console.log(`Body: ${note.body}`)
+    console.log('--------------------')
   })
 
 program

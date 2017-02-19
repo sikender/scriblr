@@ -10,4 +10,9 @@ describe('Test notes module', function () {
     assert.isObject(note)
     assert.isTrue(fs.existsSync(notePath))
   })
+
+  it('should get a note', function () {
+    var note = notes.getNote('hello')
+    assert.isObject(note)
+  })
 })
