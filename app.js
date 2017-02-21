@@ -15,7 +15,7 @@ program
         console.log(err)
       }
       var note = notes.addNote(title, raw)
-      console.log(`New post created. Id: ${note.noteId}`)
+      console.log(`New post created. Id: ${note.id}`)
       process.exit(0)
     })
   })
@@ -38,7 +38,7 @@ program
   .alias('d')
   .description('delete a note')
   .action(function (title) {
-    // TODO
+    notes.removeNote(title)
   })
 
 program
